@@ -1,0 +1,32 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"Courses", 
+		"/courses/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Blog", 
+		"/blog/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Pages", 
+		"/pages/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Contact", 
+		"/contact.php", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>
