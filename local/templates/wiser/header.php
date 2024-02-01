@@ -4,6 +4,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 use Bitrix\Main\Page\Asset;
 
+global $USER;
+
 $asset = Asset::getInstance();
 
 $APPLICATION->ShowHead();
@@ -62,7 +64,11 @@ $APPLICATION->ShowHead();
                                 <p><span>+880166 253 232</span> <span>info@domain.com</span></p>
                             </div>
                             <div class="text_wrap">
-                                <p><a href="/login.php"> <i class="ti-user"></i>  Login</a> <a href="/registration.php">Register</a></p>
+                                <?if(!$USER->IsAuthorized()):?>
+                                    <p><a href="/login.php"> <i class="ti-user"></i>  Login</a> <a href="/registration.php">Register</a></p>
+                                <?else:?>
+                                    <p><a><i class="ti-user"></i>  <?=$USER->GetLogin()?></a> <a href="/login.php"> Exit</a></p>
+                                <?endif;?>
                             </div>
                         </div>
                     </div>

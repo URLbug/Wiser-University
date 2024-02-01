@@ -6,8 +6,8 @@ $APPLICATION->SetTitle("login");
 	"template1", 
 	array(
 		"FORGOT_PASSWORD_URL" => "/frogot.php",
-		"PROFILE_URL" => "/index.php",
-		"REGISTER_URL" => "",
+		"PROFILE_URL" => "/",
+		"REGISTER_URL" => "/registration.php",
 		"SHOW_ERRORS" => "Y",
 		"COMPONENT_TEMPLATE" => "template1"
 	),

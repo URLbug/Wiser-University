@@ -1,7 +1,10 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 CJSCore::Init();
+
+global $USER;
 ?>
+
 
 <div class="row justify-content-center">
     <div class="col-md-6 col-lg-4">
@@ -84,6 +87,21 @@ CJSCore::Init();
     </div>
 </div>
 </section>
+
+
+<?if($USER->IsAuthorized()):?>
+    <form action="<?=$arResult["AUTH_URL"]?>">
+        <?foreach ($arResult["GET"] as $key => $value):?>
+            <input type="hidden" name="<?=$key?>" value="<?=$value?>" />
+        <?endforeach?>
+        <?
+        bitrix_sessid_post();?>
+        <input type="hidden" name="logout" value="yes" />
+        <input type="submit" id="logouts" name="logout_butt" value="<?=GetMessage("AUTH_LOGOUT_BUTTON")?>" />
+    </form>
+<?endif;?>
+
+
 
 <?//if($arResult["FORM_TYPE"] == "login"):?>
 <!---->
