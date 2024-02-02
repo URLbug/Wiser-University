@@ -11,85 +11,210 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-?>
-<div class="news-detail">
-	<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arResult["DETAIL_PICTURE"])):?>
-		<img
-			class="detail_picture"
-			border="0"
-			src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>"
-			width="<?=$arResult["DETAIL_PICTURE"]["WIDTH"]?>"
-			height="<?=$arResult["DETAIL_PICTURE"]["HEIGHT"]?>"
-			alt="<?=$arResult["DETAIL_PICTURE"]["ALT"]?>"
-			title="<?=$arResult["DETAIL_PICTURE"]["TITLE"]?>"
-			/>
-	<?endif?>
-	<?if($arParams["DISPLAY_DATE"]!="N" && $arResult["DISPLAY_ACTIVE_FROM"]):?>
-		<span class="news-date-time"><?=$arResult["DISPLAY_ACTIVE_FROM"]?></span>
-	<?endif;?>
-	<?if($arParams["DISPLAY_NAME"]!="N" && $arResult["NAME"]):?>
-		<h3><?=$arResult["NAME"]?></h3>
-	<?endif;?>
-	<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && ($arResult["FIELDS"]["PREVIEW_TEXT"] ?? '')):?>
-		<p><?=$arResult["FIELDS"]["PREVIEW_TEXT"];unset($arResult["FIELDS"]["PREVIEW_TEXT"]);?></p>
-	<?endif;?>
-	<?if($arResult["NAV_RESULT"]):?>
-		<?if($arParams["DISPLAY_TOP_PAGER"]):?><?=$arResult["NAV_STRING"]?><br /><?endif;?>
-		<?echo $arResult["NAV_TEXT"];?>
-		<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?><br /><?=$arResult["NAV_STRING"]?><?endif;?>
-	<?elseif($arResult["DETAIL_TEXT"] <> ''):?>
-		<?echo $arResult["DETAIL_TEXT"];?>
-	<?else:?>
-		<?echo $arResult["PREVIEW_TEXT"];?>
-	<?endif?>
-	<div style="clear:both"></div>
-	<br />
-	<?foreach($arResult["FIELDS"] as $code=>$value):
-		if ('PREVIEW_PICTURE' == $code || 'DETAIL_PICTURE' == $code)
-		{
-			?><?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?
-			if (!empty($value) && is_array($value))
-			{
-				?><img border="0" src="<?=$value["SRC"]?>" width="<?=$value["WIDTH"]?>" height="<?=$value["HEIGHT"]?>"><?
-			}
-		}
-		else
-		{
-			?><?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?=$value;?><?
-		}
-		?><br />
-	<?endforeach;
-	foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
 
-		<?=$arProperty["NAME"]?>:&nbsp;
-		<?if(is_array($arProperty["DISPLAY_VALUE"])):?>
-			<?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
-		<?else:?>
-			<?=$arProperty["DISPLAY_VALUE"];?>
-		<?endif?>
-		<br />
-	<?endforeach;
-	if(array_key_exists("USE_SHARE", $arParams) && $arParams["USE_SHARE"] == "Y")
-	{
-		?>
-		<div class="news-detail-share">
-			<noindex>
-			<?
-			$APPLICATION->IncludeComponent("bitrix:main.share", "", array(
-					"HANDLERS" => $arParams["SHARE_HANDLERS"],
-					"PAGE_URL" => $arResult["~DETAIL_PAGE_URL"],
-					"PAGE_TITLE" => $arResult["~NAME"],
-					"SHORTEN_URL_LOGIN" => $arParams["SHARE_SHORTEN_URL_LOGIN"],
-					"SHORTEN_URL_KEY" => $arParams["SHARE_SHORTEN_URL_KEY"],
-					"HIDE" => $arParams["SHARE_HIDE"],
-				),
-				$component,
-				array("HIDE_ICONS" => "Y")
-			);
-			?>
-			</noindex>
-		</div>
-		<?
-	}
-	?>
-</div>
+//echo print_r($arResult);
+?>
+
+
+<section class="blog_area single-post-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 posts-list">
+                <div class="single-post">
+                    <div class="feature-img">
+                        <img class="img-fluid" src="img/blog/single_blog_1.png" alt="">
+                    </div>
+                    <div class="blog_details">
+                        <h2>Second divided from form fish beast made every of seas
+                            all gathered us saying he our
+                        </h2>
+                        <ul class="blog-info-link mt-3 mb-4">
+                            <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
+                            <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
+                        </ul>
+                        <p class="excert">
+                            MCSE boot camps have its supporters and its detractors. Some people do not understand why you
+                            should have to spend money on boot camp when you can get the MCSE study materials yourself at a
+                            fraction of the camp price. However, who has the willpower
+                        </p>
+                        <p>
+                            MCSE boot camps have its supporters and its detractors. Some people do not understand why you
+                            should have to spend money on boot camp when you can get the MCSE study materials yourself at a
+                            fraction of the camp price. However, who has the willpower to actually sit through a
+                            self-imposed MCSE training. who has the willpower to actually
+                        </p>
+                        <div class="quote-wrapper">
+                            <div class="quotes">
+                                MCSE boot camps have its supporters and its detractors. Some people do not understand why you
+                                should have to spend money on boot camp when you can get the MCSE study materials yourself at
+                                a fraction of the camp price. However, who has the willpower to actually sit through a
+                                self-imposed MCSE training.
+                            </div>
+                        </div>
+                        <p>
+                            MCSE boot camps have its supporters and its detractors. Some people do not understand why you
+                            should have to spend money on boot camp when you can get the MCSE study materials yourself at a
+                            fraction of the camp price. However, who has the willpower
+                        </p>
+                        <p>
+                            MCSE boot camps have its supporters and its detractors. Some people do not understand why you
+                            should have to spend money on boot camp when you can get the MCSE study materials yourself at a
+                            fraction of the camp price. However, who has the willpower to actually sit through a
+                            self-imposed MCSE training. who has the willpower to actually
+                        </p>
+                    </div>
+                </div>
+                <div class="navigation-top">
+                    <div class="d-sm-flex justify-content-between text-center">
+                        <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4
+                            people like this</p>
+                        <div class="col-sm-4 text-center my-2 my-sm-0">
+                            <!-- <p class="comment-count"><span class="align-middle"><i class="fa fa-comment"></i></span> 06 Comments</p> -->
+                        </div>
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="navigation-area">
+                        <div class="row">
+                            <div
+                                class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
+                                <div class="thumb">
+                                    <a href="#">
+                                        <img class="img-fluid" src="img/post/preview.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="arrow">
+                                    <a href="#">
+                                        <span class="lnr text-white ti-arrow-left"></span>
+                                    </a>
+                                </div>
+                                <div class="detials">
+                                    <p>Prev Post</p>
+                                    <a href="#">
+                                        <h4>Space The Final Frontier</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div
+                                class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
+                                <div class="detials">
+                                    <p>Next Post</p>
+                                    <a href="#">
+                                        <h4>Telescopes 101</h4>
+                                    </a>
+                                </div>
+                                <div class="arrow">
+                                    <a href="#">
+                                        <span class="lnr text-white ti-arrow-right"></span>
+                                    </a>
+                                </div>
+                                <div class="thumb">
+                                    <a href="#">
+                                        <img class="img-fluid" src="img/post/next.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-author">
+                    <div class="media align-items-center">
+                        <img src="img/blog/author.png" alt="">
+                        <div class="media-body">
+                            <a href="#">
+                                <h4>Harvard milan</h4>
+                            </a>
+                            <p>Second divided from form fish beast made. Every of seas all gathered use saying you're, he
+                                our dominion twon Second divided from</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="comments-area">
+                    <h4>05 Comments</h4>
+                    <div class="comment-list">
+                        <div class="single-comment justify-content-between d-flex">
+                            <div class="user justify-content-between d-flex">
+                                <div class="thumb">
+                                    <img src="img/comment/comment_1.png" alt="">
+                                </div>
+                                <div class="desc">
+                                    <p class="comment">
+                                        Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
+                                        Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                                    </p>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <h5>
+                                                <a href="#">Emilly Blunt</a>
+                                            </h5>
+                                            <p class="date">December 4, 2017 at 3:12 pm </p>
+                                        </div>
+                                        <div class="reply-btn">
+                                            <a href="#" class="btn-reply text-uppercase">reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-list">
+                        <div class="single-comment justify-content-between d-flex">
+                            <div class="user justify-content-between d-flex">
+                                <div class="thumb">
+                                    <img src="img/comment/comment_2.png" alt="">
+                                </div>
+                                <div class="desc">
+                                    <p class="comment">
+                                        Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
+                                        Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                                    </p>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <h5>
+                                                <a href="#">Emilly Blunt</a>
+                                            </h5>
+                                            <p class="date">December 4, 2017 at 3:12 pm </p>
+                                        </div>
+                                        <div class="reply-btn">
+                                            <a href="#" class="btn-reply text-uppercase">reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-list">
+                        <div class="single-comment justify-content-between d-flex">
+                            <div class="user justify-content-between d-flex">
+                                <div class="thumb">
+                                    <img src="img/comment/comment_3.png" alt="">
+                                </div>
+                                <div class="desc">
+                                    <p class="comment">
+                                        Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
+                                        Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                                    </p>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <h5>
+                                                <a href="#">Emilly Blunt</a>
+                                            </h5>
+                                            <p class="date">December 4, 2017 at 3:12 pm </p>
+                                        </div>
+                                        <div class="reply-btn">
+                                            <a href="#" class="btn-reply text-uppercase">reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

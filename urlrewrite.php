@@ -77,7 +77,7 @@ $arUrlRewrite=array (
     'CONDITION' => '#^/blog/#',
     'RULE' => '',
     'ID' => 'bitrix:news',
-    'PATH' => '/test.php',
+    'PATH' => '/blog/index.php',
     'SORT' => 100,
   ),
 );

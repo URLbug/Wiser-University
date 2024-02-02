@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Inspiration";
+$arDirProperties = Array(
+
+);
+?>
